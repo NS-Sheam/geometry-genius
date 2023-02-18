@@ -26,19 +26,20 @@ function addOnCalcutionArea(shapeName, value, serial) {
     tr.innerHTML = `
     <td class="px-5 md:px-2 text-sm">${serial}<span>.</span></td>
     <td class="px-5 md:px-2 text-sm">${shapeName}</td>
-    <td class="px-5 md:px-2 text-sm">${value}<span>cm</span><sup>2</sup></td>
+    <td class="px-5 md:px-2 text-sm"><span>${value}</span><span>cm</span><sup>2</sup></td>
     <td class="px-5 md:px-2 text-sm">
     <button class="meter-btn my-2 px-2 py-3 bg-[#1090D8] rounded-lg text-white font-bold flex items-center"><p>Convert to m</p><sup>2</sup></button>
     </td>
     `;
     tableContainer.appendChild(tr);
-
+    // meter conversion button code 
     const meterBtns = document.querySelectorAll('.meter-btn');
     for (const meterBtn of meterBtns) {
         meterBtn.addEventListener('click', function(event){
             meter = centiToMeter(value);
-            event.target.parentNode.parentNode.children[2].innerText = meter.toFixed(2);
-            event.target.parentNode.parentNode.children[3].children[0].children[0].innerText = 'Converted to m';
+            meterBtn.parentNode.parentNode.children[2].children[0].innerText = meter.toFixed(2);
+            meterBtn.parentNode.parentNode.children[2].children[1].innerText = 'm';
+            event.target.innerText = "Converted to m";
         })
     }
 };
