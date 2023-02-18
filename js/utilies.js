@@ -7,11 +7,26 @@ function gentInputValue(inputId) {
 };
 function multiply(value1, value2) {
     const multiplyingValue = value1 * value2;
+    const multiplyingValueFloat = multiplyingValue.toFixed
     return multiplyingValue;
 };
 function multiplyingValueWithHalf(value1, value2) {
     const multiplyingValue = 0.5 * value1 * value2;
-    return multiplyingValue;
+    const multiplyingValueFloat = multiplyingValue.toFixed(2)
+    return multiplyingValueFloat;
+};
+function addOnCalcutionArea(shapeName, value, serial) {
+    const tableContainer = document.getElementById('table-container');
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+    <td class="px-5">${serial}<span>.</span></td>
+    <td class="px-5">${shapeName}</td>
+    <td class="px-5">${value}<span>cm<sup>2</sup></span></td>
+    <td class="px-5">
+    <button class="my-2 px-2 py-3 bg-[#1090D8] rounded-lg text-white font-bold">Convert to m<sup>2</sup></button>
+    </td>
+    `;
+    tableContainer.appendChild(tr);
 };
 document.getElementById('triangle-btn').addEventListener('click', function (event) {
     const shapeName = event.target.parentNode.children[1].innerText;
@@ -24,6 +39,8 @@ document.getElementById('triangle-btn').addEventListener('click', function (even
     }
     serial+=1;
     addOnCalcutionArea(shapeName, multiplyValue, serial);
+    document.getElementById('triangle-base').value = '';
+    document.getElementById('triangle-height').value = '';
 });
 document.getElementById('rectangle-btn').addEventListener('click', function (event) {
     const shapeName = event.target.parentNode.children[1].innerText;
@@ -36,6 +53,9 @@ document.getElementById('rectangle-btn').addEventListener('click', function (eve
     }
     serial+=1;
     addOnCalcutionArea(shapeName, multiplyValue, serial);
+    document.getElementById('rectangle-width').value = '';
+    document.getElementById('rectangle-length').value = '';
+    
 });
 document.getElementById('parallelogram-btn').addEventListener('click', function (event) {
     const shapeName = event.target.parentNode.children[1].innerText;
@@ -48,10 +68,12 @@ document.getElementById('parallelogram-btn').addEventListener('click', function 
     }
     serial+=1;
     addOnCalcutionArea(shapeName, multiplyValue, serial);
+    document.getElementById('parallelogram-base').value = '';
+    document.getElementById('parallelogram-height').value = '';
 });
 document.getElementById('rhombus-btn').addEventListener('click', function (event) {
     const shapeName = event.target.parentNode.children[1].innerText;
-    const diagonal1 = gentInputValue('diagonal2');
+    const diagonal1 = gentInputValue('diagonal1');
     const diagonal2 = gentInputValue('diagonal2');
     const multiplyValue = multiplyingValueWithHalf(diagonal1, diagonal2);
     if (isNaN(diagonal1) || isNaN(diagonal2)) {
@@ -60,18 +82,8 @@ document.getElementById('rhombus-btn').addEventListener('click', function (event
     }
     serial+=1;
     addOnCalcutionArea(shapeName, multiplyValue, serial);
+    document.getElementById('diagonal1').value = '';
+    document.getElementById('diagonal2').value = '';
 });
 
-function addOnCalcutionArea(shapeName, value, serial) {
-    const tableContainer = document.getElementById('table-container');
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-    <td class="px-5">${serial}<span>.</span></td>
-    <td class="px-5">${shapeName}</td>
-    <td class="px-5">${value.toFixed(2)}<span>cm<sup>2</sup></span></td>
-    <td class="px-5">
-    <button class="my-2 px-2 py-3 bg-[#1090D8] rounded-lg text-white font-bold">Convert to m<sup>2</sup></button>
-    </td>
-    `;
-    tableContainer.appendChild(tr);
-};
+
