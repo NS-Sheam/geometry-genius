@@ -64,7 +64,7 @@ document.getElementById('pentagon-btn').addEventListener('click', function (even
     const shapeName = event.target.parentNode.children[1].innerText;
     const perimeter = gentInputValue('perimeter');
     const apothem = gentInputValue('apothem');
-    const multiplyValue = multiply(perimeter, apothem);
+    const multiplyValue = multiplyingValueWithHalf(perimeter, apothem);
     if (isNaN(perimeter) || isNaN(apothem)) {
         alert("Provide both data correctly");
         return;
@@ -106,7 +106,6 @@ function generateRandomNumber() {
         return generateRandomNumber();
     }
 };
-
 function color(card) {
     let color = generateRandomNumber();
     card.style.backgroundColor = color;
