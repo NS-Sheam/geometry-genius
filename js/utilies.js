@@ -24,10 +24,10 @@ function addOnCalcutionArea(shapeName, value, serial) {
     const tableContainer = document.getElementById('table-container');
     const tr = document.createElement('tr');
     tr.innerHTML = `
-    <td class="px-5 md:px-2 text-sm">${serial}<span>.</span></td>
-    <td class="px-5 md:px-2 text-sm">${shapeName}</td>
-    <td class="px-5 md:px-2 text-sm"><span>${value}</span><span>cm</span><sup>2</sup></td>
-    <td class="px-5 md:px-2 text-sm">
+    <td class="px-2 text-xs">${serial}<span>.</span></td>
+    <td class="px-2 text-xs">${shapeName}</td>
+    <td class="px-2 text-xs"><span>${value}</span><span>cm</span><sup>2</sup></td>
+    <td class="px-2 text-xs">
     <button class="meter-btn my-2 px-2 py-3 bg-[#1090D8] rounded-lg text-white font-bold flex items-center"><p>Convert to m</p><sup>2</sup></button>
     </td>
     `;
