@@ -8,11 +8,16 @@ function gentInputValue(inputId) {
 function multiply(value1, value2) {
     const multiplyingValue = value1 * value2;
     const multiplyingValueFloat = multiplyingValue.toFixed(2);
+    if (value1 < 0 || value2 < 0) {
+        alert("Input cannot be negative number");
+        multiplyingValueFloat = '';
+        return;
+    }
     return multiplyingValueFloat;
 };
 function multiplyingValueWithHalf(value1, value2) {
     const multiplyingValue = 0.5 * value1 * value2;
-    const multiplyingValueFloat = multiplyingValue.toFixed(2)
+    const multiplyingValueFloat = multiplyingValue.toFixed(2);
     return multiplyingValueFloat;
 };
 function addOnCalcutionArea(shapeName, value, serial) {

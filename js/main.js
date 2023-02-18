@@ -13,6 +13,7 @@ document.getElementById('triangle-btn').addEventListener('click', function (even
     document.getElementById('triangle-base').value = '';
     document.getElementById('triangle-height').value = '';
 });
+// Rectangle area calculation
 document.getElementById('rectangle-btn').addEventListener('click', function (event) {
     const shapeName = event.target.parentNode.children[1].innerText;
     const width = gentInputValue('rectangle-width');
@@ -28,7 +29,7 @@ document.getElementById('rectangle-btn').addEventListener('click', function (eve
     document.getElementById('rectangle-length').value = '';
     
 });
-
+// Parallelogram area calculation
 document.getElementById('parallelogram-btn').addEventListener('click', function (event) {
     const shapeName = event.target.parentNode.children[1].innerText;
     const base = gentInputValue('parallelogram-base');
@@ -43,6 +44,7 @@ document.getElementById('parallelogram-btn').addEventListener('click', function 
     document.getElementById('parallelogram-base').value = '';
     document.getElementById('parallelogram-height').value = '';
 });
+// Rhombus area calculation
 document.getElementById('rhombus-btn').addEventListener('click', function (event) {
     const shapeName = event.target.parentNode.children[1].innerText;
     const diagonal1 = gentInputValue('diagonal1');
@@ -57,6 +59,7 @@ document.getElementById('rhombus-btn').addEventListener('click', function (event
     document.getElementById('diagonal1').value = '';
     document.getElementById('diagonal2').value = '';
 });
+// Pentagon area calculation
 document.getElementById('pentagon-btn').addEventListener('click', function (event) {
     const shapeName = event.target.parentNode.children[1].innerText;
     const perimeter = gentInputValue('perimeter');
@@ -72,6 +75,7 @@ document.getElementById('pentagon-btn').addEventListener('click', function (even
     document.getElementById('apothem').value = '';
     
 });
+// ellipse area calculation
 document.getElementById('ellipse-btn').addEventListener('click', function (event) {
     const shapeName = event.target.parentNode.children[1].innerText;
     const axisA = gentInputValue('axis-a');
@@ -87,11 +91,23 @@ document.getElementById('ellipse-btn').addEventListener('click', function (event
     document.getElementById('axis-b').value = '';
     
 });
+// QNA window shifting
 document.getElementById('blog-btn').addEventListener('click', function(){
     window.location.href = 'answer.html';
 });
 // Random hover function 
+function generateRandomNumber() {
+    let random = Math.round(Math.random() * 1000000);
+    let randomString = random.toString();
+    if (randomString.length === 6) {
+        return '#' + randomString;
+    }
+    else {
+        return generateRandomNumber();
+    }
+};
 
-document.getElementById('card-part').addEventListener('mouseover', function(event){
-        console.log("hello workd");
-    })
+function color(card) {
+    let color = generateRandomNumber();
+    card.style.backgroundColor = color;
+};
