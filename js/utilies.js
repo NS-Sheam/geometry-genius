@@ -7,8 +7,8 @@ function gentInputValue(inputId) {
 };
 function multiply(value1, value2) {
     const multiplyingValue = value1 * value2;
-    const multiplyingValueFloat = multiplyingValue.toFixed
-    return multiplyingValue;
+    const multiplyingValueFloat = multiplyingValue.toFixed(2);
+    return multiplyingValueFloat;
 };
 function multiplyingValueWithHalf(value1, value2) {
     const multiplyingValue = 0.5 * value1 * value2;
@@ -55,6 +55,21 @@ document.getElementById('rectangle-btn').addEventListener('click', function (eve
     addOnCalcutionArea(shapeName, multiplyValue, serial);
     document.getElementById('rectangle-width').value = '';
     document.getElementById('rectangle-length').value = '';
+    
+});
+document.getElementById('pentagon-btn').addEventListener('click', function (event) {
+    const shapeName = event.target.parentNode.children[1].innerText;
+    const perimeter = gentInputValue('perimeter');
+    const apothem = gentInputValue('apothem');
+    const multiplyValue = multiply(perimeter, apothem);
+    if (isNaN(perimeter) || isNaN(apothem)) {
+        alert("Provide data correctly");
+        return;
+    }
+    serial+=1;
+    addOnCalcutionArea(shapeName, multiplyValue, serial);
+    document.getElementById('perimeter').value = '';
+    document.getElementById('apothem').value = '';
     
 });
 document.getElementById('parallelogram-btn').addEventListener('click', function (event) {
