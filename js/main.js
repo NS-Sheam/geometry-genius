@@ -84,6 +84,10 @@ document.getElementById('ellipse-btn').addEventListener('click', function (event
     if (isNaN(axisA) || isNaN(axisB)) {
         alert("Provide both data correctly");
         return;
+    }if (axisA < 0 || axisB < 0) {
+        alert("Input cannot be negative number");
+        multiplyingValueFloat = '';
+        return;
     }
     serial+=1;
     addOnCalcutionArea(shapeName, multiplyValue, serial);
