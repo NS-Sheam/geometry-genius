@@ -90,3 +90,8 @@ document.getElementById('ellipse-btn').addEventListener('click', function (event
 document.getElementById('blog-btn').addEventListener('click', function(){
     window.location.href = 'answer.html';
 });
+// Random hover function 
+
+document.getElementById('card-part').addEventListener('mouseover', function(event){
+        console.log("hello workd");
+    })
