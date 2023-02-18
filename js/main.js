@@ -1,3 +1,4 @@
+// Triangle area calculation
 document.getElementById('triangle-btn').addEventListener('click', function (event) {
     const shapeName = event.target.parentNode.children[1].innerText;
     const base = gentInputValue('triangle-base');
