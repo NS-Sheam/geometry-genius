@@ -40,6 +40,8 @@ function addOnCalcutionArea(shapeName, value, serial) {
             meterBtn.parentNode.parentNode.children[2].children[0].innerText = meter.toFixed(2);
             meterBtn.parentNode.parentNode.children[2].children[1].innerText = 'm';
             meterBtn.children[0].innerText = "Converted to m";
+            meterBtn.style.backgroundColor = '#daeef0';
+            meterBtn.style.color = '#444747';
         })
     }
 };
